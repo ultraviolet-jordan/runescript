@@ -234,3 +234,52 @@ if (randominc(%combat_stat) > randominc(%com_slashdef))
 }
 else ~playerhit_n_melee(false,0,$delay);
 ```
+
+#### 101.0.jpg
+```js
+[proc,GetTotalKeys]
+%done = 35; %ok = 0;
+while(%temp < 32)
+{
+	if(testbit(%Favour_Keyring, %temp) = 1)
+	{
+		%n = calc(%n + 1);
+		if(%done = 35)
+		{
+			if(%n = 1)
+			{
+				%done=%temp;
+			}
+		}
+		if(%temp > %ok)
+		{
+			if(%temp > %ok)
+			{
+				%ok=%temp;
+			}
+		}
+	}
+	%temp = calc(%temp + 1);
+}
+
+[proc,keydata](namedobj $keyname, string $description, obj $keyoutline, int $num)
+// if Current_key is less than or equal to bit value, then it will get assigned to %Obj
+if(testbit(%favour_keyring, $num) = 1)
+{
+	if (%num <= $num)
+	{
+		%namedobj = %keyname;
+		%s1 = $description;
+		%obj7 = $keyoutline;
+		%count = $num;
+		if(%size=0) {%size = calc(%size + 1);%obj1=%namedobj;%namedobj2=%namedobj;%i1=%count;%string=%s1;%obj8=%obj7;}
+		else if(%size = 1) { %size = calc(%size + 1); %obj2 = %namedobj; %i2 = %count; }
+		else if(%size = 2) { %size = calc(%size + 1); %obj3 = %namedobj; %i3 = %count; }
+		else if(%size = 3) { %size = calc(%size + 1); %obj4 = %namedobj; %i4 = %count; }
+		else if(%size = 4) { %size = calc(%size + 1); %obj5 = %namedobj; %i5 = %count; }
+		else if(%size = 5) { %size = calc(%size + 1); %obj6 = %namedobj; %i6 = %count; }
+		if (%size > 5) return(^end);
+	}
+}
+return(^true);
+```
